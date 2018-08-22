@@ -22,8 +22,6 @@ const StyledPaper = styled(Paper)`
 
 class Root extends Component {
   render() {
-    const { location } = this.props
-
     return (
       <Layout>
         <CssBaseline />

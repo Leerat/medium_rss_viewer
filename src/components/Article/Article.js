@@ -46,6 +46,7 @@ const Article = ({title, pubDate, description, creator, link, encoded}) => {
   const imgSrc = html.getElementsByTagName('img')[0]?.src.replace(/max\/\d*/, 'max/336')
   const desc = html.getElementsByTagName('p')[1]?.innerHTML
 
+  //If there isnt normal img medium gives empty img not from cdn
   const isImg = !/^https:\/\/medium\.com\//.test(imgSrc)
 
   return (

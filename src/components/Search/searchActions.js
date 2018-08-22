@@ -9,8 +9,10 @@ export const searchOnMedium = searchQuery => ({
   [RSAA]: {
     types: [
       types.SEARCH_ON_MEDIUM+START,
+      //If response isnt json need some additional work to types define
       {
         type: types.SEARCH_ON_MEDIUM+SUCCESS,
+        //If response isnt json api wouldnt returns payload without additions manual parsing
         payload: async (action, state, res) => {
           let rss = await res.text()
           let json = parser.xml2js(rss).rss.channel
