@@ -9,8 +9,8 @@ import InputAdornment from '@material-ui/core/InputAdornment'
 import IconButton from '@material-ui/core/IconButton'
 import Typography from '@material-ui/core/Typography'
 import SearchIcon from '@material-ui/icons/Search'
-import Divider from '@material-ui/core/Divider'
 import CircularProgress from '@material-ui/core/CircularProgress'
+import Paper from '@material-ui/core/Paper'
 
 //And when other homebrew imports
 import debounce from 'utils/debounce'
@@ -29,6 +29,18 @@ const Title = styled.div`
 const style = {
   marginBottom: '1.5em'
 }
+
+const AdaptiveTypo = styled(Typography)`
+  font-size: calc(1rem + 3vw) !important;
+`
+
+const StyledPaper = styled(Paper)`
+  text-align: center;
+  padding: 0 1em 1em 1em;
+  min-height: 152px;
+  margin-bottom: 12px;
+  box-shadow: 0px 6px 12px 2px rgba(0,0,0,0.15) !important;
+`
 
 class Header extends Component {
 
@@ -56,7 +68,7 @@ class Header extends Component {
     const { channel, isSearching, isLoaded } = this.props
 
     return (
-      <Body>
+      <StyledPaper>
         <TextField
           id="name"
           label="User account or feed"
@@ -76,22 +88,22 @@ class Header extends Component {
           }}
         />
         <Title>
-          {!isLoaded && !isSearching && <Typography variant="display1" gutterBottom>There is nothing yet</Typography>}
+          {!isLoaded && !isSearching && <AdaptiveTypo variant="display1" gutterBottom>There is nothing yet</AdaptiveTypo>}
           {
             isSearching ?
               <CircularProgress /> :
               <>
-                <Typography variant="display2">
+                <AdaptiveTypo variant="display1">
                   <a href={channel.link}>{channel.title}</a>
-                </Typography>
-                <Typography variant="headline">
+                </AdaptiveTypo>
+                <Typography variant="subheading">
                   {channel.desc}
                 </Typography>
               </>
           }
         </Title>
-        {isLoaded && <Divider />}
-      </Body>
+        {/*{isLoaded && <Divider />}*/}
+      </StyledPaper>
     )
   }
 }
