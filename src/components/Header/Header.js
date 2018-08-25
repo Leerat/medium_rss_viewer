@@ -51,17 +51,26 @@ class Header extends Component {
 
   getSearch = debounce(()=>{
     const { searchOnMedium } = this.props
-    if(this.state.name !== '') searchOnMedium(this.state.name)
-  }, 1000)
+    if(this.state.name !== '') this.input.blur() || searchOnMedium(this.state.name)
+  }, 2000)
 
   handleChange = field => e => {
     const searchQuery = e.currentTarget.value
 
-    this.setState({[field]: searchQuery}, this.getSearch)
+    //We can cb search here
+    this.setState({[field]: searchQuery})
   }
 
-  handleClick = e => {
+  handleClick = () => {
     this.getSearch()
+  }
+
+  handleKeyDown = e => {
+    if(e.key === 'Enter') this.getSearch()
+  }
+
+  getRef = el => {
+    this.input = el
   }
 
   render() {
@@ -77,6 +86,8 @@ class Header extends Component {
           fullWidth
           margin="normal"
           style={style}
+          inputRef={this.getRef}
+          onKeyDown={this.handleKeyDown}
           InputProps={{
             endAdornment: (
               <InputAdornment position="end">
