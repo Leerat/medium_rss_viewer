@@ -5,13 +5,13 @@ import { withRouter } from 'react-router'
 import CssBaseline from '@material-ui/core/CssBaseline'
 
 import Header from 'components/Header'
-import Body from 'components/Body/Body'
+import Articles from 'components/Articles/Articles'
 
 const Layout = styled.div`
   width: auto;
   max-width: 720px;
   margin: 0 auto;
-  //padding: 1em;
+  padding-bottom: 1em;
 `
 
 class Root extends Component {
@@ -20,7 +20,7 @@ class Root extends Component {
       <Layout>
         <CssBaseline />
         <Header />
-        <Body />
+        <Articles />
       </Layout>
     )
   }

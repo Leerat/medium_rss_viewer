@@ -6,7 +6,7 @@ import ReactSwipe from 'react-swipe'
 import { getArticles } from 'components/Search/searchSelectors'
 import Article from 'components/Article/Article'
 
-const Articles = ({articles, isMobile, currentSlide}) => articles.map((item, index) => (
+const ArticleList = ({articles, isMobile, currentSlide}) => articles.map((item, index) => (
   <Article
     {...item}
     isMobile={isMobile}
@@ -29,7 +29,7 @@ const Container = styled.section`
   min-height: ${props => props.loaded ? `${document.body.clientHeight - 171}px` : 0};
 `
 
-class Body extends Component {
+class Articles extends Component {
 
   state = {
     currentSlide: 0
@@ -55,11 +55,11 @@ class Body extends Component {
                   key={articles?.length}
                   swipeOptions={swipeOptions(this.getCurrentSlide)}
                 >
-                  <Articles articles={articles} isMobile={isMobile} currentSlide={currentSlide} />
+                  <ArticleList articles={articles} isMobile={isMobile} currentSlide={currentSlide} />
                 </ReactSwipe>
               </div>
               :
-              <Articles articles={articles} isMobile={isMobile} />
+              <ArticleList articles={articles} isMobile={isMobile} />
           )
         }
       </Container>
@@ -74,4 +74,4 @@ const mstp = state => ({
 export default connect(
   mstp,
   null
-)(Body)
+)(Articles)

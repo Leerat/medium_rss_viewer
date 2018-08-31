@@ -42,6 +42,13 @@ const StyledPaper = styled(Paper)`
   box-shadow: 0px 6px 12px 2px rgba(0,0,0,0.15) !important;
 `
 
+const SourceLinkWrap = styled(Typography)`
+  text-align: right;
+  a {
+    text-decoration: underline;
+  }
+`
+
 class Header extends Component {
 
   state = {
@@ -78,6 +85,9 @@ class Header extends Component {
 
     return (
       <StyledPaper>
+        <SourceLinkWrap variant="subheading">
+          <a href="https://github.com/Leerat/medium_rss_viewer">View source ></a>
+        </SourceLinkWrap>
         <TextField
           id="name"
           label="User account or feed"

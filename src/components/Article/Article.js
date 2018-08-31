@@ -64,7 +64,7 @@ export default class Article extends Component {
     width: null
   }
 
-  ots = e => {
+  otm = e => {
     const transform = e.currentTarget.style.transform
     const angle = transform.match(/-?\d+/)[0]
     const rotation = ` rotate(${Math.round((angle*0.1)/2)}deg)`
@@ -88,7 +88,7 @@ export default class Article extends Component {
     const isImg = !/^https:\/\/medium\.com\//.test(imgSrc)
 
     return (
-      <Body isMobile={isMobile} onTouchMove={this.ots} isPrev={isPrev} isNext={isNext} innerRef={this.getRef} el={this.slide} widht={this.state.width}>
+      <Body isMobile={isMobile} onTouchMove={this.otm} isPrev={isPrev} isNext={isNext} innerRef={this.getRef} el={this.slide} widht={this.state.width}>
       <Wrap>
         <Grid container spacing={16}>
           <Hidden smUp>

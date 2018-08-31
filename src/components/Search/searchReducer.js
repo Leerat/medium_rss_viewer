@@ -4,8 +4,7 @@ import { START, SUCCESS, FAIL } from 'constants.js'
 const defaultState = {
   status: null,
   result: null,
-  isFetching: false,
-  isError: false
+  isFetching: false
 }
 
 export default (state = defaultState, action ) => {
@@ -15,13 +14,12 @@ export default (state = defaultState, action ) => {
     case types.SEARCH_ON_MEDIUM+START:
       return {
         ...state,
-        isFetching: true
+        isFetching: true,
       }
     case types.SEARCH_ON_MEDIUM+FAIL:
       return {
         ...defaultState,
         isFetching: false,
-        isError: true
       }
     case types.SEARCH_ON_MEDIUM+SUCCESS:
       return {
