@@ -98,6 +98,7 @@ class Header extends Component {
           style={style}
           inputRef={this.getRef}
           onKeyDown={this.handleKeyDown}
+          placeholder={`Type "the-atlantic" for example`}
           InputProps={{
             endAdornment: (
               <InputAdornment position="end">
